@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="timer.css">
+</head>
+<body>
+
+<h1 class="countdown-title">Таймер</h1>
+<div id="countdown" class="countdown">
+  <div class="countdown-number">
+    <span class="days countdown-time"></span>
+    <span class="countdown-text">Дни</span>
+  </div>
+  <div class="countdown-number">
+    <span class="hours countdown-time"></span>
+    <span class="countdown-text">Часы</span>
+  </div>
+  <div class="countdown-number">
+    <span class="minutes countdown-time"></span>
+    <span class="countdown-text">Минуты</span>
+  </div>
+  <div class="countdown-number">
+    <span class="seconds countdown-time"></span>
+    <span class="countdown-text">Секунды</span>
+  </div>
+</div>
+
+<script src="DPTimerDate.js"></script>
+<script>
+//  var timer = new DPTimerDate({
+ //   htmlLayouts: [
+ //     {
+ //       selector: "#myTimer1",
+ //       display: "block"
+ //     },
+//      {
+//        selector: "#myTimer2",
+//        display: "block"
+//      },
+//      {
+//        selector: ".timer",
+//        display: "block"
+//      }
+//    ],
+//    timeZone: 3,
+//    timers: [
+//      {
+//        stopDate: {
+//          day: 10,
+//          month: 9,
+//          year: 2019,
+//         hour: 3,
+//          minute: 33,
+//          sec: 0
+//        },
+//        timerStarted: function () {
+//          console.log("таймер 1 начал работу!!");
+//        },
+//        timerFinished: function () {
+//          console.log("Таймер 1 закончил работу!!");
+//        }
+//      },
+//      {
+//        stopDate: {
+//          day: 10,
+//          month: 9,
+//          year: 2019,
+//          hour: 3,
+//          minute: 34,
+//          sec: 0
+ //       },
+ //       timerStarted: function () {
+ //         console.log("таймер 2 начал работу!!");
+ //       },
+ //       timerFinished: function () {
+ //         console.log("Таймер 2 закончил работу!!");
+ //       }
+ //     }
+ //   ]
+ // });
+ // timer.start();
+</script>
+
+<script src="DifferenceTime.js"></script>
+</body>
+</html>
