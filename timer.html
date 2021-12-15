@@ -2,33 +2,58 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8"/>
-  <link rel="stylesheet" href="timer.css">
+  
+  <h3>Таймер</h3>
 </head>
 
 <body>
 
-<h1 class="countdown-title">Таймер</h1>
-<div id="countdown" class="countdown">
-  <div class="countdown-number">
-    <span class="days countdown-time"></span>
-    <span class="countdown-text">Дни</span>
-  </div>
-  <div class="countdown-number">
-    <span class="hours countdown-time"></span>
-    <span class="countdown-text">Часы</span>
-  </div>
-  <div class="countdown-number">
-    <span class="minutes countdown-time"></span>
-    <span class="countdown-text">Минуты</span>
-  </div>
-  <div class="countdown-number">
-    <span class="seconds countdown-time"></span>
-    <span class="countdown-text">Секунды</span>
-  </div>
-</div>
+<div>Часы: <span id="hour"></span></div>
+<div>Минуты: <span id="minute"></span></div>
+<div>Секунды: <span id="seconds"></span></div>
 
-<script src="DPTimerDate.js"></script>
-<br />
+<button id="start-btn">Старт</button>
+<button id="stop-btn">Стоп</button>
+<button id="reset-btn">Сброс</button>
+
+ <script>
+   window.onload = () => {
+       let hour = 0;
+       let minute = 0;
+      let seconds = 0;
+     let totalSeconds = 0;
+  
+     let intervalId = null;
+  
+    function startTimer() {
+    ++totalSeconds;
+    hour = Math.floor(totalSeconds /3600);
+    minute = Math.floor((totalSeconds - hour*3600)/60);
+    seconds = totalSeconds - (hour*3600 + minute*60);
+
+    document.getElementById("hour").innerHTML =hour;
+    document.getElementById("minute").innerHTML =minute;
+    document.getElementById("seconds").innerHTML =seconds;
+  }
+
+  document.getElementById('start-btn').addEventListener('click', () => {
+    intervalId = setInterval(startTimer, 1000);
+  })
+  
+  document.getElementById('stop-btn').addEventListener('click', () => {
+    if (intervalId)
+      clearInterval(intervalId);
+  });
+  
+   
+  document.getElementById('reset-btn').addEventListener('click', () => {
+     totalSeconds = 0;
+     document.getElementById("hour").innerHTML = '0';
+     document.getElementById("minute").innerHTML = '0';
+     document.getElementById("seconds").innerHTML = '0';
+  });
+}
+ </script>
 
 <form action="C:/Users/nekhaychuk/Desktop/index.html">
  <button type="submit">Калькулятор</button>
