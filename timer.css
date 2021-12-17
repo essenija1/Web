@@ -1,55 +1,61 @@
-body {
-  text-align: center;
-  background: lightgrey;
-  font-family: sans-serif;
-  font-weight: 100;
-}
- 
-.countdown-title {
-  color: hotpink;
-  font-weight: 100;
-  font-size: 40px;
-  margin: 40px 0px 20px;
-}
- 
-.countdown {
-  font-family: sans-serif;
-  color: white;
-  display: inline-block;
-  font-weight: 100;
-  text-align: center;
-  font-size: 30px;
-}
- 
-.countdown-number {
-  padding: 10px;
-  border-radius: 3px;
-  background: hotpink;
-  display: inline-block;
-}
- 
-.countdown-time {
-  padding: 15px;
-  border-radius: 3px;
-  background: pink;
-  display: inline-block;
-}
- 
-.countdown-text {
-  display: block;
-  padding-top: 5px;
-  font-size: 16px;
-}
-.deadline-message{
-  display: none;
-  font-size: 24px;
-  font-style: italic;
-}
- 
-.visible{
-  display: block;
-}
- 
-.hidden{
-  display: none;
-}
+body{
+	      text-align: center;
+	      margin: 10;
+	      font-family: Verdana, Arial, sans-serif;
+	      font-size: 16px;
+	    }
+	  
+	    .app_form_block input[type="number"] {
+    		padding: 4px 4px;
+		}
+		.app_main .block_row {
+			padding: 1em 0.5em;
+		}
+		.app_timer .app_console .timer_panel_info {
+			font-size: 1.6em;
+			line-height: 1.2em;
+			letter-spacing: 0;
+		}
+
+		/*зелёный цвет*/
+		.green {
+			color: #BFF08E;
+		}
+		.red {
+			color: #E56655;
+		}
+		.app_timer .app_console .timer_panel_nums {
+			font-size: 4.8em;
+			line-height: 1.2em;
+			margin-top: 50px;
+		}
+		.app_timer .timer_btn.hide,
+		.app_timer .timer_nums.hide,
+		.app_timer .timer_sep.hide {
+			display: none;
+		}
+		.app_timer .timer_btn {
+			border-color: #777;
+			color: #777;
+			font-size: 1.2em;
+			font-weight: 400;
+			line-height: 1.8em;
+			padding: 8px 12px;
+			margin: 0 2px;
+			min-width: 180px;
+		}
+		.app_timer .timer_btn:hover {
+			background-color: #777;
+			color: #FFF;
+		}
+		.app_timer .timer_btn.run,
+		.app_timer .timer_btn.pause {
+			border-color: #5594E5;
+			color: #5594E5;
+			font-weight: 600;
+		}
+		.app_timer .timer_btn.run:hover,
+		.app_timer .timer_btn.pause:hover {
+			background-color: #5594E5;
+			color: #FFF;
+		}
