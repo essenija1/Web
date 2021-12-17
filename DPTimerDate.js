@@ -1,10 +1,9 @@
-// после загрузки страницы виртуально «щёлкаем» по заголовку страницы, чтобы активировать таймер
+
 window.onload = function() {
 	document.getElementById("Secret").click();
 };
 
 var now_seconds = 0;
-// var now_times = 0;
 var interval_type = 'work';
 var intervalVariable;
 var seconds_1 = 0;
