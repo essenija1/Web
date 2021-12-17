@@ -1,64 +1,164 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
+
 <head>
-  <meta charset="UTF-8"/>
-  
-  <h3>Таймер</h3>
+
+	<title>Таймер</title>
+  	<meta charset="utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<style type="text/css">
+	    body{
+	      text-align: center;
+	      margin: 10;
+	      font-family: Verdana, Arial, sans-serif;
+	      font-size: 16px;
+	    }
+	  
+	    .app_form_block input[type="number"] {
+    		padding: 4px 4px;
+		}
+		.app_main .block_row {
+			padding: 1em 0.5em;
+		}
+		.app_timer .app_console .timer_panel_info {
+			font-size: 1.6em;
+			line-height: 1.2em;
+			letter-spacing: 0;
+		}
+
+		/*зелёный цвет*/
+		.green {
+			color: #BFF08E;
+		}
+		.red {
+			color: #E56655;
+		}
+		.app_timer .app_console .timer_panel_nums {
+			font-size: 4.8em;
+			line-height: 1.2em;
+			margin-top: 50px;
+		}
+		.app_timer .timer_btn.hide,
+		.app_timer .timer_nums.hide,
+		.app_timer .timer_sep.hide {
+			display: none;
+		}
+		.app_timer .timer_btn {
+			border-color: #777;
+			color: #777;
+			font-size: 1.2em;
+			font-weight: 400;
+			line-height: 1.8em;
+			padding: 8px 12px;
+			margin: 0 2px;
+			min-width: 180px;
+		}
+		.app_timer .timer_btn:hover {
+			background-color: #777;
+			color: #FFF;
+		}
+		.app_timer .timer_btn.run,
+		.app_timer .timer_btn.pause {
+			border-color: #5594E5;
+			color: #5594E5;
+			font-weight: 600;
+		}
+		.app_timer .timer_btn.run:hover,
+		.app_timer .timer_btn.pause:hover {
+			background-color: #5594E5;
+			color: #FFF;
+		}
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="text/javascript" defer></script>
 </head>
+<body >
+	<div class="app_form_block app_main app_timer ">
 
-<body>
+		<!-- подключаем звуковые уведомления -->
+		<audio id="audio_beep">
+			<source src="s.mp3" type="audio/mp3" >
+		</audio>
+		<form name="timer_form" id="timer_form">
+			<div class="block_row timer_types ">
+				<span class="timer_types_btn active" id="Secret">Интервальный таймер
+				</span>
+			</div>
 
-<div>Часы: <span id="hour"></span></div>
-<div>Минуты: <span id="minute"></span></div>
-<div>Секунды: <span id="seconds"></span></div>
+			<!-- основной блок с цифрами -->
+			<div class="block_row  app_console">
+				
+				<!-- панель, где мы задаём время тренировки, количество повторов и время перерыва -->
+				<div class="timer_panel_info ">
 
-<button id="start-btn">Старт</button>
-<button id="stop-btn">Стоп</button>
-<button id="reset-btn">Сброс</button>
+					
 
- <script>
-   window.onload = () => {
-       let hour = 0;
-       let minute = 0;
-      let seconds = 0;
-     let totalSeconds = 0;
-  
-     let intervalId = null;
-  
-    function startTimer() {
-    ++totalSeconds;
-    hour = Math.floor(totalSeconds /3600);
-    minute = Math.floor((totalSeconds - hour*3600)/60);
-    seconds = totalSeconds - (hour*3600 + minute*60);
+					<!-- блок, который отвечает за количество подходов -->
+					<span class="timer_interval_count">
 
-    document.getElementById("hour").innerHTML =hour;
-    document.getElementById("minute").innerHTML =minute;
-    document.getElementById("seconds").innerHTML =seconds;
-  }
+						
 
-  document.getElementById('start-btn').addEventListener('click', () => {
-    intervalId = setInterval(startTimer, 1000);
-  })
-  
-  document.getElementById('stop-btn').addEventListener('click', () => {
-    if (intervalId)
-      clearInterval(intervalId);
-  });
-  
-   
-  document.getElementById('reset-btn').addEventListener('click', () => {
-     totalSeconds = 0;
-     document.getElementById("hour").innerHTML = '0';
-     document.getElementById("minute").innerHTML = '0';
-     document.getElementById("seconds").innerHTML = '0';
-  });
-}
- </script>
+					<!-- блок, который отвечает за время отдыха -->
+					<span class="timer_interval_rest">
 
-<form action="C:/Users/nekhaychuk/Desktop/index.html">
+						<!-- по умолчанию ставим время отдыха 0 минут… -->
+						
+						<span class="timer_interval_nums minutes black" contenteditable="true">00
+						</span>
+
+						<!-- разделитель — двоеточие -->
+						<span class="timer_sep">:
+						</span>
+
+						<!-- …и 5 секунд -->
+						<span class="timer_interval_nums seconds black" contenteditable="true">06
+						</span>
+					</span>
+
+				<!-- закончилась панель настроек -->
+				</div>
+
+
+
+				<!-- большая цифровая панель -->
+				<div class="timer_panel_nums">
+					
+					<!-- минуты… -->
+					<span class="timer_nums minutes" >00</span>
+					<span >:</span>
+
+					<!-- …и секунды -->
+					<span class="timer_nums seconds" >00</span>
+				</div>
+
+			<!-- закончился основной блок с числами -->
+			</div>
+
+			<!-- блок кнопок -->
+			<div class="block_row">
+
+				<!-- Кнопка «Сброс» -->
+				<input value="Сброс" name="timer_clear" id="timer_clear" class="timer_btn" type="button" />
+
+				<!-- Кнопка Старт -->
+				<input value="Старт" name="timer_run" id="timer_run" class="timer_btn run" type="button" />
+
+				<!-- Кнопка «Пауза», в самом начале она скрыта -->
+				<input value="Пауза" name="timer_pause" id="timer_pause" class="timer_btn pause hide" type="button" />
+					
+			<!-- закончился блок кнопок -->
+			</div>
+	
+		<!-- закончилась форма -->
+		</form>
+
+	<!-- закончился общий блок -->
+	</div>
+
+	<!-- подключаем наш код, который отвечает за правильную работу таймера -->
+	<script type="text/javascript" src="DPTimerDate.js" defer></script>
+	<form action="C:/Users/nekhaychuk/Desktop/index.html">
  <button type="submit">Калькулятор</button>
 </form>
-
-
 </body>
 </html>
