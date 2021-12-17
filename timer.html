@@ -7,14 +7,14 @@
   	<meta charset="utf-8">
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<style type="timer.css"></styl>
+  	<link rel="stylesheet" href="timer.css">
 	    
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="text/javascript" defer></script>
 </head>
 <body >
 	<div class="app_form_block app_main app_timer ">
 
-		<!-- подключаем звуковые уведомления -->
+		<!-- подключаем звук -->
 		<audio id="audio_beep">
 			<source src="s.mp3" type="audio/mp3" >
 		</audio>
@@ -24,79 +24,34 @@
 				</span>
 			</div>
 
-			<!-- основной блок с цифрами -->
 			<div class="block_row  app_console">
-				
-				<!-- панель, где мы задаём время тренировки, количество повторов и время перерыва -->
 				<div class="timer_panel_info ">
-
-					
-
-					<!-- блок, который отвечает за количество подходов -->
 					<span class="timer_interval_count">
 
-						
-
-					<!-- блок, который отвечает за время отдыха -->
-					<span class="timer_interval_rest">
-
-						<!-- по умолчанию ставим время отдыха 0 минут… -->
-						
+					<span class="timer_interval_rest">						
 						<span class="timer_interval_nums minutes black" contenteditable="true">00
 						</span>
-
-						<!-- разделитель — двоеточие -->
 						<span class="timer_sep">:
 						</span>
-
-						<!-- …и 5 секунд -->
 						<span class="timer_interval_nums seconds black" contenteditable="true">06
 						</span>
 					</span>
-
-				<!-- закончилась панель настроек -->
 				</div>
-
-
-
-				<!-- большая цифровая панель -->
 				<div class="timer_panel_nums">
-					
-					<!-- минуты… -->
 					<span class="timer_nums minutes" >00</span>
 					<span >:</span>
-
-					<!-- …и секунды -->
 					<span class="timer_nums seconds" >00</span>
 				</div>
-
-			<!-- закончился основной блок с числами -->
 			</div>
-
-			<!-- блок кнопок -->
 			<div class="block_row">
-
-				<!-- Кнопка «Сброс» -->
 				<input value="Сброс" name="timer_clear" id="timer_clear" class="timer_btn" type="button" />
-
-				<!-- Кнопка Старт -->
 				<input value="Старт" name="timer_run" id="timer_run" class="timer_btn run" type="button" />
-
-				<!-- Кнопка «Пауза», в самом начале она скрыта -->
 				<input value="Пауза" name="timer_pause" id="timer_pause" class="timer_btn pause hide" type="button" />
-					
-			<!-- закончился блок кнопок -->
 			</div>
-	
-		<!-- закончилась форма -->
 		</form>
-
-	<!-- закончился общий блок -->
 	</div>
-
-	<!-- подключаем наш код, который отвечает за правильную работу таймера -->
 	<script type="text/javascript" src="DPTimerDate.js" defer></script>
-	<form action="C:/Users/nekhaychuk/Desktop/index.html">
+	<form action="index.html">
  <button type="submit">Калькулятор</button>
 </form>
 </body>
